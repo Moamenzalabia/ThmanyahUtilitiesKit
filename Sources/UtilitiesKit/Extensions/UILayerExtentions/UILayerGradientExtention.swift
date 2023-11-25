@@ -36,4 +36,14 @@ public extension CAGradientLayer {
         endPoint = end
     }
     
+    func createGradientImage() -> UIImage? {
+        var image: UIImage? = nil
+        UIGraphicsBeginImageContext(bounds.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            render(in: context)
+            image = UIGraphicsGetImageFromCurrentImageContext()
+        }
+        UIGraphicsEndImageContext()
+        return image
+    }
 }

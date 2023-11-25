@@ -13,7 +13,11 @@ extension UIColor {
         return UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
     
-    /// #000000
+    /// #ECEDF0
+    public class var lightGlobalLowContrast2: UIColor {
+        return UIColor(red: 236/255, green: 237/255, blue: 240/255, alpha: 1)
+    }
+
     public class var blackColor: UIColor {
         return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
     }
@@ -23,14 +27,15 @@ extension UIColor {
         return UIColor(red: 41/255, green: 114/255, blue: 243/255, alpha: 1)
     }
     
-    /// #1C222B
+    /// #A3A5A7
     public class var  chimneySweepColor: UIColor {
-        return UIColor(red: 28/255, green: 34/255, blue: 43/255, alpha: 1)
+        return UIColor(red: 163/255, green: 165/255, blue: 167/255, alpha: 1)
+        
     }
     
-    /// #A3A5A7
+    /// #1C222B
     public class var  chimneySweepTwoColor: UIColor {
-        return UIColor(red: 163/255, green: 165/255, blue: 167/255, alpha: 1)
+        return UIColor(red: 28/255, green: 34/255, blue: 43/255, alpha: 1)
     }
     
     /// #76787C

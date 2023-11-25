@@ -64,116 +64,20 @@ public extension UIView {
         layer.borderColor = borderColor.cgColor
     }
     
-    /// Remove all masking around UIView
-    func nakedView() {
-        layer.mask = nil
-        layer.borderWidth = 0
-    }
-    
-    /// Add border to top
-    func addBorderTop(size: CGFloat, color: UIColor) {
-        addBorderUtility(x: 0, y: 0, width: frame.width, height: size, color: color)
-    }
-    
-    /// Add border to top with padding
-    func addBorderTopWithPadding(size: CGFloat, color: UIColor, padding: CGFloat) {
-        addBorderUtility(x: padding, y: 0, width: frame.width - padding*2, height: size, color: color)
-    }
-    
-    /// Add border to bootom
-    func addBorderBottom(size: CGFloat, color: UIColor) {
-        addBorderUtility(x: 0, y: frame.height - size, width: frame.width, height: size, color: color)
-    }
-    
-    /// Add border to left
-    func addBorderLeft(size: CGFloat, color: UIColor) {
-        addBorderUtility(x: 0, y: 0, width: size, height: frame.height, color: color)
-    }
-    
-    /// Add border to right
-    func addBorderRight(size: CGFloat, color: UIColor) {
-        addBorderUtility(x: frame.width - size, y: 0, width: size, height: frame.height, color: color)
-    }
-    
-    /// Add border with x, y, w, h, color
-    fileprivate func addBorderUtility(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, color: UIColor) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: x, y: y, width: width, height: height)
-        layer.addSublayer(border)
-    }
-}
-
-
-// MARK: Fade Extensions
-public let UIViewDefaultFadeDuration: TimeInterval = 0.4
-
-public extension UIView {
-    /// Fade in with duration, delay and completion block.
-    func fadeIn(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        fadeTo(1.0, duration: duration, delay: delay, completion: completion)
-    }
-    
-    ///
-    func fadeOut(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        fadeTo(0.0, duration: duration, delay: delay, completion: completion)
-    }
-    
-    /// Fade to specific value     with duration, delay and completion block.
-    func fadeTo(_ value: CGFloat, duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration ?? UIViewDefaultFadeDuration, delay: delay ?? UIViewDefaultFadeDuration, options: .curveEaseInOut, animations: { [weak self] in
-            self?.alpha = value
-        }, completion: completion)
-    }
-    
-    /// Shakes the view for as many number of times as given in the argument.
-    func shakeViewForTimes(_ times: Int) {
-        let anim = CAKeyframeAnimation(keyPath: "transform")
-        anim.values = [
-            NSValue(caTransform3D: CATransform3DMakeTranslation(-5, 0, 0 )),
-            NSValue(caTransform3D: CATransform3DMakeTranslation( 5, 0, 0 ))
-        ]
-        anim.autoreverses = true
-        anim.repeatCount = Float(times)
-        anim.duration = 7/100
-        layer.add(anim, forKey: nil)
+    /// Add multiple subviews
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { [weak self] eachView in
+            self?.addSubview(eachView)
+        }
     }
 }
 
 // MARK: Gesture Extensions
 public extension UIView {
-    
     func addTapGesture(tapNumber: Int = 1, target: AnyObject, action: Selector) {
         let tap = UITapGestureRecognizer(target: target, action: action)
         tap.numberOfTapsRequired = tapNumber
         addGestureRecognizer(tap)
         isUserInteractionEnabled = true
     }
-    
-    func addSwipeGesture(direction: UISwipeGestureRecognizer.Direction, numberOfTouches: Int = 1, target: AnyObject, action: Selector) {
-        let swipe = UISwipeGestureRecognizer(target: target, action: action)
-        swipe.direction = direction
-        swipe.numberOfTouchesRequired = numberOfTouches
-        addGestureRecognizer(swipe)
-        isUserInteractionEnabled = true
-    }
-    
-    func addPanGesture(target: AnyObject, action: Selector) {
-        let pan = UIPanGestureRecognizer(target: target, action: action)
-        addGestureRecognizer(pan)
-        isUserInteractionEnabled = true
-    }
-    
-    func addPinchGesture(target: AnyObject, action: Selector) {
-        let pinch = UIPinchGestureRecognizer(target: target, action: action)
-        addGestureRecognizer(pinch)
-        isUserInteractionEnabled = true
-    }
-    
-    func addLongPressGesture(target: AnyObject, action: Selector) {
-        let longPress = UILongPressGestureRecognizer(target: target, action: action)
-        addGestureRecognizer(longPress)
-        isUserInteractionEnabled = true
-    }
-    
 }

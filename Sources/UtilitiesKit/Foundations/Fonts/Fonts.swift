@@ -7,9 +7,9 @@
 import UIKit
 
 extension UIFont {
-    /// IBMPlexSansArabic, Bold, 22px
+    /// IBMPlexSansArabic, SemiBold, 22px
     public class var H1: UIFont {
-        return UIFont(name: AppFonts.bold(), size: 20)!
+        return UIFont(name: AppFonts.semiBold(), size: 22)!
     }
     
     /// IBMPlexSansArabic, Bold, 15px
@@ -24,7 +24,7 @@ extension UIFont {
     
     /// IBMPlexSansArabic, Regular, 12px
     public class var H4: UIFont {
-        return UIFont(name: AppFonts.regular(), size: 12)!
+        return UIFont(name: AppFonts.regular(), size: 12) ?? UIFont.systemFont(ofSize: 10)
     }
     
     /// IBMPlexSansArabic, Bold, 12px

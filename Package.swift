@@ -21,8 +21,16 @@ let package = Package(
         .package(url: "https://github.com/marcosgriselli/ViewAnimator.git", from: "3.1.0"),
     ],
     targets: [
-        .target(name: "DesignSystem"),
         .target(name: "EasyConstraints"),
+        .target(name: "DesignSystem",
+                dependencies: [
+                    "EasyConstraints",
+                    "UtilitiesKit",
+                ],
+                resources: [
+                    .process("Resources/assets.xcassets"),
+                ]
+               ),
         .target(
             name: "UtilitiesKit",
             dependencies: [
