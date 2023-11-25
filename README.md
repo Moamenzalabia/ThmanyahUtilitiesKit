@@ -1,15 +1,15 @@
 # ThmanyahUtilitiesKit
 
 ## How it works
-The repository Contains UtilitiesKit Package that allows you to use Helper Extensions to make your coding more faster and efficient.
-The repository Contains EasyConstraints Package that allows you to Desgin your screens by code
-The repository Contains DesignSystem Package allows you to use all the features of standard UIButton with a lot of new cool features, customizable from Storyboard or from code.
+The repository Contains `UtilitiesKit` Package that allows you to use Helper Extensions to make your coding more faster and efficient.
+The repository Contains `EasyConstraints` Package that allows you to Desgin your screens by code.
+The repository Contains `DesignSystem` Package allows you to use all the features of standard UIButton with a lot of new cool features, customizable from Storyboard or from code.
 
 | Start Screen | Loading Screen |
 | --- | --- |
 | <img src="screenshoots/StartScreen.png" /> | <img src="screenshoots/LoadingScreen.png" /> |
 
-First of all, drag & drop a new UIButton inside your view controller in storyboard, then set the UIButton class to HalanButton:
+First of all, Create a new Button inside your view controller.
 
 | Button Creation | Button Action |
 | --- | --- |
