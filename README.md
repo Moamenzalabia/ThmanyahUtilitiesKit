@@ -27,8 +27,8 @@ myButton.stopAnimating()
 
 ## Requirements
 
-- iOS 13.0+
-- Xcode 12+
+- iOS 14.0+
+- Xcode 14+
 
 ## Setup
 To get started, you need to have the ThmanyahUtilitiesKit package installed in your project please read this guidlines.
